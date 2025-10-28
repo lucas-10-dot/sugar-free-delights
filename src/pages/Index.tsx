@@ -202,7 +202,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             💬 O Que Quem Já Tem Está Dizendo
           </h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto relative px-12">
             <Carousel className="w-full">
               <CarouselContent>
                 {[
@@ -254,8 +254,8 @@ const Index = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="left-0 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg" />
+              <CarouselNext className="right-0 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg" />
             </Carousel>
           </div>
         </div>
