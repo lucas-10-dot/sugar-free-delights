@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Check, Gift, Heart, Sparkles, Clock, DollarSign, Shield, Star } from "lucide-react";
 import heroImage from "@/assets/hero-desserts.jpg";
 import ebookMockup from "@/assets/ebook-mockup.png";
@@ -195,29 +196,68 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Depoimento */}
+      {/* Depoimentos */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             💬 O Que Quem Já Tem Está Dizendo
           </h2>
-          <Card className="max-w-3xl mx-auto border-2 border-primary/20">
-            <CardContent className="p-8">
-              <div className="flex gap-1 mb-4 justify-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+          <div className="max-w-4xl mx-auto">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {[
+                  {
+                    text: "Comprei achando que seria só mais um eBook, mas me surpreendi! As receitas são práticas e muito gostosas. Hoje faço sobremesa sem medo de engordar ou subir a glicose. 💚",
+                    author: "Maria L., 52 anos"
+                  },
+                  {
+                    text: "Meu marido é diabético e sempre ficava triste sem poder comer doce. Agora ele come feliz e sem culpa! As receitas são deliciosas e fáceis de fazer. 🍰",
+                    author: "Ana Paula S., 45 anos"
+                  },
+                  {
+                    text: "Eu não sabia que era possível fazer doces tão gostosos sem açúcar! Perdi 8kg em 3 meses e continuo comendo sobremesa todo dia. Maravilhoso! ✨",
+                    author: "Carla M., 38 anos"
+                  },
+                  {
+                    text: "As receitas natalinas foram um sucesso total na família! Todo mundo adorou e ninguém sentiu diferença. Vale cada centavo! 🎄",
+                    author: "Roberto F., 61 anos"
+                  },
+                  {
+                    text: "Sou mãe de 3 filhos e estava preocupada com o consumo de açúcar deles. Agora faço essas receitas e eles amam! Inclusive os vizinhos pedem pra provar. 😍",
+                    author: "Juliana R., 34 anos"
+                  },
+                  {
+                    text: "Tinha pré-diabetes e o médico mandou cortar o açúcar. Achei que ia sofrer, mas com essas receitas está sendo tranquilo! Já melhorou muito minha glicemia. 💪",
+                    author: "Marcos T., 56 anos"
+                  },
+                  {
+                    text: "Melhor investimento que fiz! São tantas receitas que faço uma diferente a cada semana. Minha família está adorando essa mudança. 🥰",
+                    author: "Fernanda C., 42 anos"
+                  }
+                ].map((testimonial, idx) => (
+                  <CarouselItem key={idx}>
+                    <Card className="border-2 border-primary/20">
+                      <CardContent className="p-8">
+                        <div className="flex gap-1 mb-4 justify-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                          ))}
+                        </div>
+                        <blockquote className="text-lg italic text-center mb-4">
+                          "{testimonial.text}"
+                        </blockquote>
+                        <p className="text-center font-semibold text-muted-foreground">
+                          — {testimonial.author}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
                 ))}
-              </div>
-              <blockquote className="text-lg italic text-center mb-4">
-                "Comprei achando que seria só mais um eBook, mas me surpreendi!
-                As receitas são práticas e muito gostosas.
-                Hoje faço sobremesa sem medo de engordar ou subir a glicose. 💚"
-              </blockquote>
-              <p className="text-center font-semibold text-muted-foreground">
-                — Maria L., 52 anos
-              </p>
-            </CardContent>
-          </Card>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
         </div>
       </section>
 
